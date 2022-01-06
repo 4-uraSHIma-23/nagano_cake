@@ -1,0 +1,21 @@
+<body class="">
+  <header class="">
+    <nav class="">
+      <div class="container">
+        <a class="" href="/admin">
+          <h1 class="">nagano_cake</h1>
+        </a>
+        <div class="collapse navbar-collapse">
+          <ul class="navbar-nav ml-auto">
+            <% if user_signed_in? %>
+            <li><%= link_to "商品一覧", admin_items_path, class: 'nav-link text-dark' %></li>
+            <li><%= link_to "会員一覧", admin_items_path, class: 'nav-link text-dark' %></li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+</body>
