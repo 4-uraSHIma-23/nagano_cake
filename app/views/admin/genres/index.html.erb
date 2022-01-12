@@ -42,9 +42,9 @@
             <tr>
               <th>ジャンル</th>
             </tr>
-            <% @lists.each do |list| %>
+            <% @genles.each do |genre_list| %>
               <tr>
-                <th><%= list.name %></th>
+                <th><%= genle_lst.name %></th>
                 <th><%= link_to "編集する", edit_admin_genre_path, class: '' %></th>
               </tr>
             <% end %>

@@ -1,16 +1,17 @@
 class Admin::GenresController < ApplicationController
   def index
-    @list = List.new
-    @lists = List.all
+    @genre = Genre.new
+    @genres = Genre.all
   end
 
   def create
-    list = List.new(list_params)
-    list.save
+    genre = Genre.new(list_params)
+    genre.save
     redirect_to '/admin/genres'
   end
 
   def edit
+    @genre = Genre.find(params[:id])
   end
 
   private
