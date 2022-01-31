@@ -1,2 +1,58 @@
-<h1>Admin::Items#new</h1>
-<p>Find me in app/views/admin/items/new.html.erb</p>
+<body class="d-flex flex-column vh-100">
+
+   <header class="shadow-sm">
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="container">
+        <a class="navbar-brand p-3" href="/admin"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item"><% link_to "商品一覧", admin_items_path, class: 'nav-link text-dark' %></li>
+            <li class="nav-item"><% link_to "会員一覧", admin_customers_path, class: 'nav-link text-dark' %></li>
+            <li class="nav-item"><% link_to "注文履歴一覧", admin_root_path, class: 'nav-link text-dark' %></li>
+            <li class="nav-item"><% link_to "ジャンル一覧", admin_genres_path, class: 'nav-link text-dark' %></li>
+            <li class="nav-item"><% link_to "ログアウト", destroy_admin_session_path, method: :delete, class: 'nav-link text-dark' %></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3">
+          <h4>商品新規登録</h4>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-7">
+          <%= fome_with model:@item, url:'/admin/items/new', local:true do |f| %>
+            <p>商品画像</p>
+            <%= f.attachment_field :image %>
+            <p>商品名</p>
+            <%= f.text_field :name %>
+            <p>商品説明</p>
+            <%= f.text_area :introduction %>
+            <p>ジャンル</p>
+            <p>税抜き価格</p>
+            <%= f.text_field :price %>
+            <p>販売ステータス</p>
+            <div class="">
+              <%= f.radio_button :is_active, true %>
+              <%= f.label :is_active, '販売中', value: true %>
+            </div>
+            <div class="">
+              <%= f.radio_button :is_active, false %>
+              <%= f.label :is_active, '販売停止中', value: false %>
+            </div>
+            <%= f.submit '新規登録' %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </main>
+
+</body>

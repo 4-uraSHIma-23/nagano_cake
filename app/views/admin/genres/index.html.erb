@@ -29,7 +29,7 @@
       </div>
       <div class="row">
         <div class="col-lg-7">
-          <%= fome_with model:genre, url:'/admin/genres', local:true do |f| %>
+          <%= fome_with model:@genre, url:'/admin/genres', local:true do |f| %>
             <p>ジャンル名</p>
             <%= f.text_field :name %>
             <%= f.submit '新規登録' %>
