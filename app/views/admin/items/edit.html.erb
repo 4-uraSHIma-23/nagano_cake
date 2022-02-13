@@ -1,2 +1,35 @@
-<h1>Admin::Items#edit</h1>
-<p>Find me in app/views/admin/items/edit.html.erb</p>
+<body class="">
+  <header class="">
+  </header>
+
+   <main class="">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3">
+          <h4>商品編集</h4>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <%= fome_with model:@item, local:true do |f| %>
+            <p>商品画像<%= f.attachment_field :image %></p>
+            <p>商品名<%= f.text_field :name %></p>
+            <p>商品説明<%= f.text_area :introduction %></p>
+            <p>ジャンル<%= f.collection_select :genre_id, @genres, :id, :name, { prompt: "--選択してください--" } %></p>
+            <p>税抜き価格<%= f.text_field :price %>円</p>
+            <p>販売ステータス</p>
+            <div class="">
+              <%= f.radio_button :is_active, true %>
+              <%= f.label :is_active, '販売中', value: true %>
+            </div>
+            <div class="">
+              <%= f.radio_button :is_active, false %>
+              <%= f.label :is_active, '販売停止中', value: false %>
+            </div>
+            <%= f.submit '新規登録' %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>

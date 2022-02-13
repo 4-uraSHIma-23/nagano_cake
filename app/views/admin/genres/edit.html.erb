@@ -27,7 +27,7 @@
           <h5>ジャンル編集</h5>
         </div>
         <div class="col-lg-7">
-          <%= fome_with model:@genre, url:"/admin/customers/#{@genre.id}", local:true do |f| %>
+          <%= form_with model:@genre, url:"/admin/customers/#{@genre.id}", local:true do |f| %>
           <p>ジャンル名</p>
           <%= f.text_field :name %>
           <%= f.submit '変更を保存' %>

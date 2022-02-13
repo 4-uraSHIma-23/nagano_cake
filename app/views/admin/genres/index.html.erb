@@ -29,7 +29,7 @@
       </div>
       <div class="row">
         <div class="col-lg-7">
-          <%= fome_with model:@genre, url:'/admin/genres', local:true do |f| %>
+          <%= form_with model:@genre, url:'/admin/genres', local:true do |f| %>
             <p>ジャンル名</p>
             <%= f.text_field :name %>
             <%= f.submit '新規登録' %>
@@ -42,10 +42,10 @@
             <tr>
               <th>ジャンル</th>
             </tr>
-            <% @genles.each do |genre_list| %>
+            <% @genres.each do |genre_list| %>
               <tr>
-                <th><%= genle_lst.name %></th>
-                <th><%= link_to "編集する", edit_admin_genre_path, class: '' %></th>
+                <th><%= genre_list.name %></th>
+                <th><%= link_to "編集する", edit_admin_genre_path(genre_list.id), class: '' %></th>
               </tr>
             <% end %>
           </table>

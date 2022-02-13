@@ -29,7 +29,7 @@
       </div>
       <div class="row">
         <div class="col-lg-7">
-          <%= fome_with model:@item, url:'/admin/items/new', local:true do |f| %>
+          <%= form_with model:@item, url:'/admin/items', local:true do |f| %>
             <p>商品画像</p>
             <%= f.attachment_field :image %>
             <p>商品名</p>
@@ -37,6 +37,7 @@
             <p>商品説明</p>
             <%= f.text_area :introduction %>
             <p>ジャンル</p>
+            <%= f.collection_select :genre_id, @genres, :id, :name, { prompt: "--選択してください--" } %>
             <p>税抜き価格</p>
             <%= f.text_field :price %>
             <p>販売ステータス</p>
