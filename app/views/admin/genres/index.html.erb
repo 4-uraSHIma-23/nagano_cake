@@ -1,38 +1,23 @@
-<body class="d-flex flex-column vh-100">
+<body>
 
-  <header class="shadow-sm">
-    <nav class="navbar navbar-expand-lg navbar-light">
-      <div class="container">
-        <a class="navbar-brand p-3" href="/admin"></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item"><% link_to "商品一覧", admin_items_path, class: 'nav-link text-dark' %></li>
-            <li class="nav-item"><% link_to "会員一覧", admin_customers_path, class: 'nav-link text-dark' %></li>
-            <li class="nav-item"><% link_to "注文履歴一覧", admin_root_path, class: 'nav-link text-dark' %></li>
-            <li class="nav-item"><% link_to "ジャンル一覧", admin_genres_path, class: 'nav-link text-dark' %></li>
-            <li class="nav-item"><% link_to "ログアウト", destroy_admin_session_path, method: :delete, class: 'nav-link text-dark' %></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+  <header class="">
+
   </header>
 
-  <main class="">
+  <main>
     <div class="container">
       <div class="row">
         <div class="col-lg-3">
           <h4>ジャンル一覧・追加</h4>
         </div>
       </div>
+      
       <div class="row">
         <div class="col-lg-7">
           <%= form_with model:@genre, url:'/admin/genres', local:true do |f| %>
             <p>ジャンル名</p>
             <%= f.text_field :name %>
-            <%= f.submit '新規登録' %>
+            <%= f.submit '新規登録', class: 'btn btn-lg btn-success' %>
           <% end %>
         </div>
       </div>
@@ -44,8 +29,8 @@
             </tr>
             <% @genres.each do |genre_list| %>
               <tr>
-                <th><%= genre_list.name %></th>
-                <th><%= link_to "編集する", edit_admin_genre_path(genre_list.id), class: '' %></th>
+                <td><%= genre_list.name %></td>
+                <td><%= link_to "編集する", edit_admin_genre_path(genre_list.id), class: 'btn btn-sm btn-success' %></td>
               </tr>
             <% end %>
           </table>

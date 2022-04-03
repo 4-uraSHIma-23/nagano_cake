@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :orders, only: [:show]
-    resources :customers, only: [:index, :show, :edit]
+    resources :customers, only: [:index, :show, :edit, :update]
     resources :genres, only: [:index, :create, :edit]
     resources :items, only: [:index, :new, :create, :show, :edit]
     root to: 'homes#top'
@@ -10,9 +10,10 @@ Rails.application.routes.draw do
 
   scope module: :public do
     resources :addresses, only: [:index, :edit]
-    resources :orders, only: [:new, :thanks, :index, :show]
-    resources :cart_items, only: [:index]
-    resources :customers, only: [:show, :edit, :check]
+    resources :orders, only: [:new, :index, :show]
+    resources :cart_items, only: [:index, :update, :destroy, :create]
+    delete '/cart_items/empty' => 'cart_items#empty'
+    resources :customers, only: [:show, :edit]
     resources :items, only: [:index, :show]
     resources :homes, only: [:about]
     root to: 'homes#top'

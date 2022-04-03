@@ -16,3 +16,6 @@ ja:
         wait: '製作待ち'
         making: '製作中'
         finish: '製作完了'
+  times:
+    formats:
+      defaults: "%Y/%m/%d %H:%M:%S"
