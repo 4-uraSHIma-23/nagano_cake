@@ -1,2 +1,95 @@
-<h1>Customers#edit</h1>
-<p>Find me in app/views/customers/edit.html.erb</p>
+<body>
+  <header></header>
+  <main>
+    <div class="container">
+      <%= form_with model:@customer, local:true do |f| %>
+      <div class="row">
+        <div class="col-1">
+        </div>
+        <div class="col-2">
+          <p>名前</p>
+        </div>
+        <div class="col-2">
+          <%= f.label :last_name, '(姓)' %>
+          <%= f.text_field, :last_name, placeholder:"令和" %>
+        </div>
+        <div class="col-2">
+          <%= f.label :first_name, '(名)' %>
+          <%= f.text_field, :first_name, placeholder:"道子" %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-1">
+        </div>
+        <div class="col-2">
+          <p>フリガナ</p>
+        </div>
+        <div class="col-2">
+          <%= f.label :last_name_kana, '(セイ)' %>
+          <%= f.text_field, :last_name_kana, placeholder:"レイワ" %>
+        </div>
+        <div class="col-2">
+          <%= f.label :first_name_kana, '(名)' %>
+          <%= f.text_field, :first_name_kana, placeholder:"ミチコ" %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-1">
+        </div>
+        <div class="col-2">
+          <%= f.label :email, 'メールアドレス' %>
+        </div>
+        <div class="col-2">
+          <%= f.email_field, :email, placeholder:"sample@example.com" %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-1">
+        </div>
+        <div class="col-2">
+          <%= f.label :postal_code, '郵便番号(ハイフンなし)' %>
+        </div>
+        <div class="col-2">
+          <%= f.text_field, :postal_code, placeholder:"0000000" %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-1">
+        </div>
+        <div class="col-2">
+          <%= f.label :address, '住所' %>
+        </div>
+        <div class="col-2">
+          <%= f.text_field, :address, placeholder:"東京都渋谷区神園町0-0", :size => "50" %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-1">
+        </div>
+        <div class="col-2">
+          <%= f.label :encrypted_password, 'パスワード(6文字以上)' %>
+        </div>
+        <div class="col-2">
+          <%= f.password_field, :encrypted_password %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-1">
+        </div>
+        <div class="col-2">
+          <%= f.label :encrypted_password, 'パスワード(確認用)' %>
+        </div>
+        <div class="col-2">
+          <%= f.password_field, :encrypted_password_confirmation %>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</body>
