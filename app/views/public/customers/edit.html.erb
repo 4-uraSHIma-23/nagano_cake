@@ -2,6 +2,7 @@
   <header></header>
   <main>
     <div class="container">
+
       <%= form_with model:@customer, local:true do |f| %>
       <div class="row">
         <div class="col-1">
@@ -10,12 +11,10 @@
           <p>名前</p>
         </div>
         <div class="col-2">
-          <%= f.label :last_name, '(姓)' %>
-          <%= f.text_field, :last_name, placeholder:"令和" %>
+          <%= f.text_field, :last_name %>
         </div>
         <div class="col-2">
-          <%= f.label :first_name, '(名)' %>
-          <%= f.text_field, :first_name, placeholder:"道子" %>
+          <%= f.text_field, :first_name %>
         </div>
       </div>
 
@@ -26,12 +25,10 @@
           <p>フリガナ</p>
         </div>
         <div class="col-2">
-          <%= f.label :last_name_kana, '(セイ)' %>
-          <%= f.text_field, :last_name_kana, placeholder:"レイワ" %>
+          <%= f.text_field, :last_name_kana %>
         </div>
         <div class="col-2">
-          <%= f.label :first_name_kana, '(名)' %>
-          <%= f.text_field, :first_name_kana, placeholder:"ミチコ" %>
+          <%= f.text_field, :first_name_kana %>
         </div>
       </div>
 
@@ -39,10 +36,21 @@
         <div class="col-1">
         </div>
         <div class="col-2">
-          <%= f.label :email, 'メールアドレス' %>
+          <p>郵便番号</p>
         </div>
         <div class="col-2">
-          <%= f.email_field, :email, placeholder:"sample@example.com" %>
+          <%= f.text_field, :postal_code %>
+        </div>
+      </div>
+
+    　<div class="row">
+        <div class="col-1">
+        </div>
+        <div class="col-2">
+         <p>住所</p>
+        </div>
+        <div class="col-2">
+          <%= f.text_field, :address, :size => "50" %>
         </div>
       </div>
 
@@ -50,10 +58,10 @@
         <div class="col-1">
         </div>
         <div class="col-2">
-          <%= f.label :postal_code, '郵便番号(ハイフンなし)' %>
+          <p>メールアドレス</p>
         </div>
         <div class="col-2">
-          <%= f.text_field, :postal_code, placeholder:"0000000" %>
+          <%= f.email_field, :email %>
         </div>
       </div>
 
@@ -61,35 +69,20 @@
         <div class="col-1">
         </div>
         <div class="col-2">
-          <%= f.label :address, '住所' %>
+        </div>
+        <div class="col-3">
+          <%= f.submit, "編集内容を保存", class: 'btn btn-success' %>
         </div>
         <div class="col-2">
-          <%= f.text_field, :address, placeholder:"東京都渋谷区神園町0-0", :size => "50" %>
+        </div>
+        <div class="col-1">
+          <%= link_to, "退会する", customers_check_path, class: 'btn btn-danger' %>
         </div>
       </div>
 
-      <div class="row">
-        <div class="col-1">
-        </div>
-        <div class="col-2">
-          <%= f.label :encrypted_password, 'パスワード(6文字以上)' %>
-        </div>
-        <div class="col-2">
-          <%= f.password_field, :encrypted_password %>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-1">
-        </div>
-        <div class="col-2">
-          <%= f.label :encrypted_password, 'パスワード(確認用)' %>
-        </div>
-        <div class="col-2">
-          <%= f.password_field, :encrypted_password_confirmation %>
-        </div>
-      </div>
+      <% end %>
 
     </div>
   </main>
+  <footer></footer>
 </body>

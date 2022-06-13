@@ -8,5 +8,4 @@ class Customer < ApplicationRecord
   has_many :cart_items, dependent: :destroy
   has_many :orders,     dependent: :destroy
 
-  validates :encrypted_password, presence: true, encrypted_password_format: true, uniqueness: true, confirmation: true
 end

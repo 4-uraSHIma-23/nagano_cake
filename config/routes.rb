@@ -15,7 +15,9 @@ Rails.application.routes.draw do
     get '/orders/thanks' => 'orders#thanks'
     resources :cart_items, only: [:index, :update, :destroy, :create]
     delete '/cart_items/empty' => 'cart_items#empty'
-    resources :customers, only: [:show, :edit]
+    resources :customers, only: [:show, :edit, :update]
+    get '/customers/check' => 'customers#check'
+    patch '/customers/withdrawal' => 'customers#withdrawal'
     resources :items, only: [:index, :show]
     resources :homes, only: [:about]
     root to: 'homes#top'

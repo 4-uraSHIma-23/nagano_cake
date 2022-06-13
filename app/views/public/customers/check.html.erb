@@ -1,2 +1,32 @@
-<h1>Customers#check</h1>
-<p>Find me in app/views/customers/check.html.erb</p>
+<body>
+  <header></header>
+  <main>
+    <div class="container">
+
+      <div class="row justify-content-center align-items-center">
+        <div class="col-2">
+          本当に退会しますか？
+        </div>
+      </div>
+
+      <div class="row justify-content-center align-items-center">
+        <div class="col-6">
+          退会すると、会員登録情報や</br>
+          これまでの購入履歴が閲覧できなくなります。</br>
+          退会する場合は、「退会する」をクリックしてください。
+        </div>
+      </div>
+
+      <div class="row justify-content-center align-items-center">
+        <div class="col-2">
+          <%= link_to "退会しない", customer_path(current_customer), class: 'btn btn-primary' %>
+        </div>
+        <div class="col-2">
+          <%= link_to "退会する", customers_withdrawal_path, method: :patch, data: { confirm: "本当に退会しますか？" }, class: 'btn btn-danger' %>
+        </div>
+      </div>
+
+    </div>
+  </main>
+  <footer></footer>
+</body>
